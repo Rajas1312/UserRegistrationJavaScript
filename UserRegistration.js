@@ -6,41 +6,44 @@ const mobile_pattern="^(\\+91)?[6-9]{1}[0-9]{9}$";
 const password_pattern="^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9\\W]{8,}$";
 
 class UserRegistration{
-
-    checkFirstNameOrLastName=()=>{
-        let name=readLine.question("Enter a Name ")
-        if(name.match(name_pattern)){
-            console.log("Valid Name")
-        }else{
-            console.log("Invaid Name")
-            checkFirstNameOrLastName()
-        }
-    }
-    checkEmailId=()=>{
-        let email=readLine.question("Enter a email Id ")
+    checkFirstNameOrLastName=(name)=>{
+            if(name.match(name_pattern)){
+                console.log("Valid Name")
+                return true;
+            }else{
+                console.log("Invaid Name")
+                //return this.checkFirstNameOrLastName()
+                }
+                
+            }
+    checkEmailId=(email)=>{
         if(email.match(email_pattern)){
             console.log("valid email")
+            return true;
         }else{
             console.log("invalid email")
-            checkEmailId()
+            return false;
+            //return this.checkEmailId()
         }
     }
-     checkMobileNumber=()=>{
-        let mobile=readLine.question("Enter a mobile number ")
+     checkMobileNumber=(mobile)=>{
         if(mobile.match(mobile_pattern)){
             console.log("valid mobile number")
+            return true;
         }else{
             console.log("invalid mobile number")
-            checkMobileNumber()
+            return false;
+            //return this.checkMobileNumber()
         }
     }
-    checkPassword=()=>{
-        let password=readLine.question("Enter a password ")
+    checkPassword=(password)=>{
         if(password.match(password_pattern)){
             console.log("valid password")
+            return true;
         }else{
             console.log("invalid password")
-            checkPassword()
+            return false;
+            //return this.checkPassword()
         }
     }
 }
